@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	Title		: Java Bindings for Wistia API's
+	Copyright	: (c) eQuartet.com
+	@filename	: pom.xml 
+	@author		: <a href="klynch@eQuartet.com">Ken L.</a>
+	@date		: Feb 28, 2016 01:20:42 PM GMT+05:30
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+<!--	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>9</version>
+	</parent>
+--> 
+	<groupId>com.equartet.klapi</groupId>
+	<artifactId>klapi</artifactId>
+	<packaging>jar</packaging>
+	<name>Wistia Client in Java</name>
+	<version>1.0</version>
+	<description>Wistia video manager in JAVA</description>
+	<url>http://enoughforce.com</url>
+	<licenses>
+		<license>
+			<name>The MIT License (MIT)</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<scm>
+		<connection>scm:git:git@github.com:lynch22/klAPI.git</connection>
+		<developerConnection>scm:git:git@github.com:lynch22/klAPI.git</developerConnection>
+		<url>git@github.com:lynch22/klAPI.git</url>
+	</scm>
+	<developers>
+		<developer>
+			<id>klynch</id>
+			<name>Ken L.</name>
+			<email>klynch@equartet.com</email>
+			<url>http://enoughforce.com</url>
+		</developer>
+	</developers>
+
+	<properties>
+		<javadoc.basepath>${project.basedir}/javadoc</javadoc.basepath>
+		<javadoc.output.path>${javadoc.basepath}</javadoc.output.path>
+	</properties>
+
+	<!-- Dependencies -->
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.12</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.jmockit</groupId>
+			<artifactId>jmockit</artifactId>
+			<version>1.7</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<defaultGoal>install</defaultGoal>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>1.7</source>
+						<target>1.7</target>
+						<fork>false</fork>
+						<compilerArguments>
+							<Xmaxerrs>1000</Xmaxerrs>
+						</compilerArguments>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<configuration>
+						<doctitle>${project.name} (${project.version})</doctitle>
+						<detectLinks>true</detectLinks>
+						<charset>UTF-8</charset>
+						<header>${project.name}</header>
+						<bottom><![CDATA[<div style="font-size: 14px;">Copyright &#169; <script>document.write(new Date().getFullYear())</script> <a href="http://klynch@equartet.com" target="_blank" title="enoughforce blog">enoughforce blog</a>, All rights reserved. <br /><br /><span style="font-size:11px; font-style:italic;">The copyright of the pages and contents on this website is with enoughforce.com and the content is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons – Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>. Libraries and code snippets on enoughforce blog has license information.</span></div>]]></bottom>
+						<footer>${project.name}</footer>
+						<docfilessubdirs>true</docfilessubdirs>
+						<verbose>true</verbose>
+						<reportOutputDirectory>${javadoc.output.path}</reportOutputDirectory>
+						<destDir>${project.version}</destDir>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-jar-plugin</artifactId>
+					<configuration>
+						<classifier>${jdkclassifier}</classifier>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
+
